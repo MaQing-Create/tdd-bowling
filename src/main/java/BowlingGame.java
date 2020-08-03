@@ -12,19 +12,23 @@ public class BowlingGame {
         return 0;
     }
 
-    boolean bowlingGameScoreRecordCheck(int[] bowlingGameScoreRecord){
+    boolean bowlingGameScoreRecordCheck(int[] bowlingGameScoreRecord) {
         if (bowlingGameScoreRecord.length != maxThrowNumber) return false;
-        for (int index = 0;index<throwNumberExceptFinalFrame/throwNumberInOneFrameExceptionFinalFrame;index++) {
+        for (int index = 0; index < throwNumberExceptFinalFrame / throwNumberInOneFrameExceptionFinalFrame; index++) {
             if (bowlingGameScoreRecord[index * throwNumberInOneFrameExceptionFinalFrame] + bowlingGameScoreRecord[index * throwNumberInOneFrameExceptionFinalFrame + 1] > 10)
                 return false;
         }
-        for (int bowlingGameScore:bowlingGameScoreRecord){
-            if (bowlingGameScore>maxScoreOfOneThrow || bowlingGameScore<minScoreOfOneThrow) return false;
+        for (int bowlingGameScore : bowlingGameScoreRecord) {
+            if (bowlingGameScore > maxScoreOfOneThrow || bowlingGameScore < minScoreOfOneThrow) return false;
         }
-        for (int index = 0;index<throwNumberExceptFinalFrame/throwNumberInOneFrameExceptionFinalFrame;index++) {
+        for (int index = 0; index < throwNumberExceptFinalFrame / throwNumberInOneFrameExceptionFinalFrame; index++) {
             if (bowlingGameScoreRecord[index * throwNumberInOneFrameExceptionFinalFrame] + bowlingGameScoreRecord[index * throwNumberInOneFrameExceptionFinalFrame + 1] > 10)
                 return false;
         }
+        if (bowlingGameScoreRecord[throwNumberExceptFinalFrame] < 10 && bowlingGameScoreRecord[throwNumberExceptFinalFrame] + bowlingGameScoreRecord[throwNumberExceptFinalFrame + 1] > 10)
+            return false;
+        if (bowlingGameScoreRecord[throwNumberExceptFinalFrame] + bowlingGameScoreRecord[throwNumberExceptFinalFrame + 1] < 10 && bowlingGameScoreRecord[throwNumberExceptFinalFrame + 2] != 0)
+            return false;
         return true;
     }
 }
