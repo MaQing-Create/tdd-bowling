@@ -1,6 +1,8 @@
 public class BowlingGame {
 
-    private final int bowlingGameScoreRecordNumber = 21;
+    private final int maxThrowNumber = 21;
+    private final int throwNumberExceptFinalFrame = 18;
+    private final int throwNumberInOneFrameExceptionFinalFrame = 2;
     private final int maxScoreOfOneThrow = 10;
     private final int minScoreOfOneThrow = 0;
 
@@ -11,9 +13,17 @@ public class BowlingGame {
     }
 
     boolean bowlingGameScoreRecordCheck(int[] bowlingGameScoreRecord){
-        if (bowlingGameScoreRecord.length != bowlingGameScoreRecordNumber) return false;
+        if (bowlingGameScoreRecord.length != maxThrowNumber) return false;
+        for (int index = 0;index<throwNumberExceptFinalFrame/throwNumberInOneFrameExceptionFinalFrame;index++) {
+            if (bowlingGameScoreRecord[index * throwNumberInOneFrameExceptionFinalFrame] + bowlingGameScoreRecord[index * throwNumberInOneFrameExceptionFinalFrame + 1] > 10)
+                return false;
+        }
         for (int bowlingGameScore:bowlingGameScoreRecord){
             if (bowlingGameScore>maxScoreOfOneThrow || bowlingGameScore<minScoreOfOneThrow) return false;
+        }
+        for (int index = 0;index<throwNumberExceptFinalFrame/throwNumberInOneFrameExceptionFinalFrame;index++) {
+            if (bowlingGameScoreRecord[index * throwNumberInOneFrameExceptionFinalFrame] + bowlingGameScoreRecord[index * throwNumberInOneFrameExceptionFinalFrame + 1] > 10)
+                return false;
         }
         return true;
     }

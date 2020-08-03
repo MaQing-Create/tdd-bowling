@@ -1,7 +1,6 @@
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class BowlingGameTest {
 
@@ -25,5 +24,17 @@ public class BowlingGameTest {
                 bowlingGame.calculateTotalScore(bowlingGameScoreRecord);
             });
         }
+    }
+
+    @Test
+    void should_throw_exception_when_hit_more_than_ten_pins_in_a_frame_expect_frame_ten(){
+        int[] bowlingGameScoreRecord1 = {10,1,10,0,10,0,10,0,10,0,10,0,10,0,10,0,10,0,10,0,0};
+        int[] bowlingGameScoreRecord2= {10,0,10,0,10,0,10,0,10,0,10,0,10,0,10,0,10,0,10,10,10};
+        assertThrows(RuntimeException.class, () ->{
+            bowlingGame.calculateTotalScore(bowlingGameScoreRecord1);
+        });
+        assertDoesNotThrow(() ->{
+            bowlingGame.calculateTotalScore(bowlingGameScoreRecord2);
+        });
     }
 }
