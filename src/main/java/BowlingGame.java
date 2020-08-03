@@ -22,7 +22,8 @@ public class BowlingGame {
         List<Integer> scoreList = new ArrayList<>();
         try {
             for (String scoreString : scoreStringList) {
-                scoreList.add(Integer.parseInt(scoreString.trim()));
+                if (scoreString.trim().equals("/")) scoreList.add(0);
+                else scoreList.add(Integer.parseInt(scoreString.trim()));
             }
         } catch (Exception e) {
             throw new RuntimeException("There is something error with bowling game score record!");

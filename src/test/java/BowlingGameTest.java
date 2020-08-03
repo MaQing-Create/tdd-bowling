@@ -62,9 +62,18 @@ public class BowlingGameTest {
     }
 
     @Test
+    void should_throw_exception_when_inputScore_does_not_make_sense() {
+        // int[] bowlingGameScoreRecord = {10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 5, 6, 0};
+        String bowlingGameScoreRecord = "a, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 5, 5, 0";
+        assertThrows(RuntimeException.class, () -> {
+            bowlingGame.calculateTotalScore(bowlingGameScoreRecord);
+        });
+    }
+
+    @Test
     void should_calcate_the_correct_total_score() {
         // int[] bowlingGameScoreRecord = {5, 5, 10, 0, 10, 0, 5, 5, 8, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 10, 10};
-        String bowlingGameScoreRecord = "5, 5, 10, 0, 10, 0, 5, 5, 8, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 10, 10";
+        String bowlingGameScoreRecord = "5, 5, 10, 0, 10, /, 5, 5, 8, /, 10, /, 10, /, 10, /, 10, /, 10, 10, 10";
         int exceptedScore = 241;
         assertEquals(exceptedScore, bowlingGame.calculateTotalScore(bowlingGameScoreRecord));
     }
