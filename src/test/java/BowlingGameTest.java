@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class BowlingGameTest {
@@ -12,5 +13,17 @@ public class BowlingGameTest {
         assertThrows(RuntimeException.class, () ->{
             bowlingGame.calculateTotalScore(bowlingGameScoreRecord);
         });
+    }
+
+    @Test
+    void should_throw_exception_when_any_game_score_record_is_larger_than_10_or_negative(){
+        int[] bowlingGameScoreRecord1 = {10,0,10,0,10,0,10,0,10,0,10,0,10,0,10,0,10,0,11,0,0};
+        int[] bowlingGameScoreRecord2= {10,0,10,0,10,0,10,0,10,0,10,0,10,0,10,0,10,0,-1,0,0};
+        int[][] bowlingGameScoreRecordList ={bowlingGameScoreRecord1,bowlingGameScoreRecord2};
+        for (int[] bowlingGameScoreRecord:bowlingGameScoreRecordList){
+            assertThrows(RuntimeException.class, () ->{
+                bowlingGame.calculateTotalScore(bowlingGameScoreRecord);
+            });
+        }
     }
 }
