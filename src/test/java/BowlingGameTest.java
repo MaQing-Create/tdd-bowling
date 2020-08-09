@@ -94,11 +94,11 @@ public class BowlingGameTest {
         });
     }
 
-//    @Test
-//    void shouldThrowWhenThePinsDownNumberIncorrectBeforeFrameTen(){
-//        String pinsDownInALine = "10, 1, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 0";
-//        assertThrows(Exception.class, () -> {
-//            bowlingGame.calculateTotalScore(pinsDownInALine);
-//        });
-//    }
+    @Test
+    void shouldThrowExceptionWhenThePinsDownNumberIncorrectBeforeFrameTen(){
+        String pinsDownInALine = "10, 1, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 0";
+        assertThrows(Exception.class, () -> {
+            bowlingGame.calculateTotalScore(pinsDownInALine);
+        });
+    }
 }

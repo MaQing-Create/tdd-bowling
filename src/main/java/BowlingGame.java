@@ -33,10 +33,10 @@ public class BowlingGame {
     boolean isTransferedIntArrayLegal(int[] pinsDownInALine) {
         boolean lengthCheck = isTheLengthOfTransferedIntArrayCorrect(pinsDownInALine);
         boolean numberRangeCheck = isTheNumberRangeOfTheTransferedIntArrayCorrect(pinsDownInALine);
-//        boolean pinsDownNumberBeforeFrameTenCheck = isThePinsDownNumberCorrectBeforeFrameTenCheck(pinsDownInALine);
+        boolean pinsDownNumberBeforeFrameTenCheck = isThePinsDownNumberCorrectBeforeFrameTenCheck(pinsDownInALine);
 //        boolean pinsDownNumberInFrameTenCheck = isThePinsDownNumberCorrectInFrameTenCheck(pinsDownInALine);
 //        return lengthCheck && numberRangeCheck && pinsDownNumberBeforeFrameTenCheck && pinsDownNumberInFrameTenCheck;
-        return lengthCheck && numberRangeCheck;
+        return lengthCheck && numberRangeCheck && pinsDownNumberBeforeFrameTenCheck;
     }
 
     private boolean isTheLengthOfTransferedIntArrayCorrect(int[] pinsDownInALine) {
@@ -58,7 +58,8 @@ public class BowlingGame {
         }
         return true;
     }
-//
+
+    //
 //    private boolean isThePinsDownNumberCorrectInFrameTenCheck(int[] pinsDownInALine) {
 //        int firstThrowIndexInFrameTen = totalFrameNumber * 2 - 2;
 //        int secondThrowIndexInFrameTen = firstThrowIndexInFrameTen + 1;
