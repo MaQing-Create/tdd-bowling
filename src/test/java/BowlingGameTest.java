@@ -135,5 +135,9 @@ public class BowlingGameTest {
         assertEquals(bowlingGame.calculateTotalScore(pinsDownInALine),15);
     }
 
-
+    @Test
+    void shouldReturnCorrectTotalScoreWWhenSpareInFrameTen() throws Exception {
+        String pinsDownInALine = "0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 2, 3";
+        assertEquals(bowlingGame.calculateTotalScore(pinsDownInALine),13);
+    }
 }
