@@ -108,7 +108,7 @@ public class BowlingGameTest {
     @Test
     void shouldReturnCorrectTotalScoreWWhenAllSpike() throws Exception {
         String pinsDownInALine = "10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 10, 10";
-        assertEquals(bowlingGame.calculateTotalScore(pinsDownInALine0),300);
+        assertEquals(bowlingGame.calculateTotalScore(pinsDownInALine),300);
     }
 
 
