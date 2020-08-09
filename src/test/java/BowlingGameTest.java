@@ -30,27 +30,6 @@ public class BowlingGameTest {
     }
 
 //    @Test
-//    void shouldCheckTransferedIntArray() {
-//        String pinsDownInALine0 = "10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0";
-//        String pinsDownInALine1 = "10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 11, 0, 0";
-//        String pinsDownInALine2 = "10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, -1, 0, 0";
-//        String pinsDownInALine3 = "10, 1, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 0";
-//        String pinsDownInALine4 = "10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 5, 6, 0";
-//        String pinsDownInALine5 = "10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 5, 4, 1";
-//        String pinsDownInALine6 = "10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 10, 10";
-//        String[] bowlingGameScoreRecordList = {pinsDownInALine0, pinsDownInALine1, pinsDownInALine2, pinsDownInALine3
-//                , pinsDownInALine4, pinsDownInALine5};
-//        for (String bowlingGameScoreRecord : bowlingGameScoreRecordList) {
-//            assertThrows(Exception.class, () -> {
-//                bowlingGame.calculateTotalScore(bowlingGameScoreRecord);
-//            });
-//        }
-//        assertDoesNotThrow(() -> {
-//            bowlingGame.calculateTotalScore(pinsDownInALine6);
-//        });
-//    }
-//
-//    @Test
 //    void shouldReturnCorrectTotalScore() throws Exception {
 //        String pinsDownInALine0 = "10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 10, 10";
 //        assertEquals(bowlingGame.calculateTotalScore(pinsDownInALine0),300);
@@ -111,11 +90,26 @@ public class BowlingGameTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenTheThirdThrowHappensIfNoaSpikeOrSpareInFrameTen(){
-        String pinsDownInALine = "10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 5, 4, 1";;
+    void shouldThrowExceptionWhenTheThirdThrowHappenedIfNoaSpikeOrSpareInFrameTen(){
+        String pinsDownInALine = "10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 5, 4, 1";
         assertThrows(Exception.class, () -> {
             bowlingGame.calculateTotalScore(pinsDownInALine);
         });
     }
+
+    @Test
+    void shouldThrowExceptionWhenTransferedArrayIsOk(){
+        String pinsDownInALine = "10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 10, 10";
+        assertDoesNotThrow(() -> {
+            bowlingGame.calculateTotalScore(pinsDownInALine);
+        });
+    }
+
+    @Test
+    void shouldReturnCorrectTotalScoreWWhenAllSpike() throws Exception {
+        String pinsDownInALine = "10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 10, 10";
+        assertEquals(bowlingGame.calculateTotalScore(pinsDownInALine0),300);
+    }
+
 
 }

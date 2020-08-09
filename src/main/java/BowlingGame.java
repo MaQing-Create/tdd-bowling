@@ -74,31 +74,30 @@ public class BowlingGame {
         int[] pinsDownInALineArray = inputTransfer(pinsDownInALine);
         if (!isTransferedIntArrayLegal(pinsDownInALineArray))
             throw new Exception("There is something error with the pins number record!");
-//        int totalScore = 0;
-//        int throwIndex = 0;
-//        int firstThrowIndexInFrameTen = totalFrameNumber * 2 - 2;
-//        int secondThrowIndexInFrameTen = firstThrowIndexInFrameTen + 1;
-//        int thirdThrowIndexInFrameTen = secondThrowIndexInFrameTen + 1;
-//        while (throwIndex < firstThrowIndexInFrameTen) {
-//            totalScore += pinsDownInALineArray[throwIndex] + pinsDownInALineArray[throwIndex + 1];
-//            if (pinsDownInALineArray[throwIndex] == maxPinsDownNumberInAThrow) {
-//                totalScore += calculateScoreWhenSpike(pinsDownInALineArray, throwIndex);
-//            } else if (pinsDownInALineArray[throwIndex] + pinsDownInALineArray[throwIndex + 1] == 10) {
-//                totalScore += pinsDownInALineArray[throwIndex + 2];
-//            }
-//            throwIndex += 2;
-//        }
-//        totalScore += pinsDownInALineArray[firstThrowIndexInFrameTen] + pinsDownInALineArray[secondThrowIndexInFrameTen] + pinsDownInALineArray[thirdThrowIndexInFrameTen];
-//        return totalScore;
-        return 0;
+        int totalScore = 0;
+        int throwIndex = 0;
+        int firstThrowIndexInFrameTen = totalFrameNumber * 2 - 2;
+        int secondThrowIndexInFrameTen = firstThrowIndexInFrameTen + 1;
+        int thirdThrowIndexInFrameTen = secondThrowIndexInFrameTen + 1;
+        while (throwIndex < firstThrowIndexInFrameTen) {
+            totalScore += pinsDownInALineArray[throwIndex] + pinsDownInALineArray[throwIndex + 1];
+            if (pinsDownInALineArray[throwIndex] == maxPinsDownNumberInAThrow) {
+                totalScore += calculateScoreWhenSpike(pinsDownInALineArray, throwIndex);
+            } else if (pinsDownInALineArray[throwIndex] + pinsDownInALineArray[throwIndex + 1] == 10) {
+                totalScore += pinsDownInALineArray[throwIndex + 2];
+            }
+            throwIndex += 2;
+        }
+        totalScore += pinsDownInALineArray[firstThrowIndexInFrameTen] + pinsDownInALineArray[secondThrowIndexInFrameTen] + pinsDownInALineArray[thirdThrowIndexInFrameTen];
+        return totalScore;
     }
-//
-//    private int calculateScoreWhenSpike(int[] pinsDownInALineArray, int throwIndex) {
-//        int frameScore = pinsDownInALineArray[throwIndex + 2];
-//        if (throwIndex != (totalFrameNumber - 1) * 2)
-//            frameScore += pinsDownInALineArray[throwIndex + 2] == 10 ? pinsDownInALineArray[throwIndex + 2 * 2] :
-//                    pinsDownInALineArray[throwIndex + 2 + 1];
-//        else frameScore += pinsDownInALineArray[throwIndex + 2 + 1];
-//        return frameScore;
-//    }
+
+    private int calculateScoreWhenSpike(int[] pinsDownInALineArray, int throwIndex) {
+        int frameScore = pinsDownInALineArray[throwIndex + 2];
+        if (throwIndex != (totalFrameNumber - 1) * 2)
+            frameScore += pinsDownInALineArray[throwIndex + 2] == 10 ? pinsDownInALineArray[throwIndex + 2 * 2] :
+                    pinsDownInALineArray[throwIndex + 2 + 1];
+        else frameScore += pinsDownInALineArray[throwIndex + 2 + 1];
+        return frameScore;
+    }
 }
