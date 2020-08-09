@@ -34,9 +34,8 @@ public class BowlingGame {
         boolean lengthCheck = isTheLengthOfTransferedIntArrayCorrect(pinsDownInALine);
         boolean numberRangeCheck = isTheNumberRangeOfTheTransferedIntArrayCorrect(pinsDownInALine);
         boolean pinsDownNumberBeforeFrameTenCheck = isThePinsDownNumberCorrectBeforeFrameTenCheck(pinsDownInALine);
-//        boolean pinsDownNumberInFrameTenCheck = isThePinsDownNumberCorrectInFrameTenCheck(pinsDownInALine);
-//        return lengthCheck && numberRangeCheck && pinsDownNumberBeforeFrameTenCheck && pinsDownNumberInFrameTenCheck;
-        return lengthCheck && numberRangeCheck && pinsDownNumberBeforeFrameTenCheck;
+        boolean pinsDownNumberInFrameTenCheck = isThePinsDownNumberCorrectInFrameTenCheck(pinsDownInALine);
+        return lengthCheck && numberRangeCheck && pinsDownNumberBeforeFrameTenCheck && pinsDownNumberInFrameTenCheck;
     }
 
     private boolean isTheLengthOfTransferedIntArrayCorrect(int[] pinsDownInALine) {
@@ -59,18 +58,18 @@ public class BowlingGame {
         return true;
     }
 
-    //
-//    private boolean isThePinsDownNumberCorrectInFrameTenCheck(int[] pinsDownInALine) {
-//        int firstThrowIndexInFrameTen = totalFrameNumber * 2 - 2;
-//        int secondThrowIndexInFrameTen = firstThrowIndexInFrameTen + 1;
-//        int thirdThrowIndexInFrameTen = secondThrowIndexInFrameTen + 1;
-//        if (pinsDownInALine[firstThrowIndexInFrameTen] < 10 && pinsDownInALine[firstThrowIndexInFrameTen] + pinsDownInALine[secondThrowIndexInFrameTen] > 10)
-//            return false;
-//        if (pinsDownInALine[firstThrowIndexInFrameTen] + pinsDownInALine[secondThrowIndexInFrameTen] < 10 && pinsDownInALine[thirdThrowIndexInFrameTen] > 0)
-//            return false;
-//        return true;
-//    }
-//
+
+    private boolean isThePinsDownNumberCorrectInFrameTenCheck(int[] pinsDownInALine) {
+        int firstThrowIndexInFrameTen = totalFrameNumber * 2 - 2;
+        int secondThrowIndexInFrameTen = firstThrowIndexInFrameTen + 1;
+        int thirdThrowIndexInFrameTen = secondThrowIndexInFrameTen + 1;
+        if (pinsDownInALine[firstThrowIndexInFrameTen] < 10 && pinsDownInALine[firstThrowIndexInFrameTen] + pinsDownInALine[secondThrowIndexInFrameTen] > 10)
+            return false;
+        if (pinsDownInALine[firstThrowIndexInFrameTen] + pinsDownInALine[secondThrowIndexInFrameTen] < 10 && pinsDownInALine[thirdThrowIndexInFrameTen] > 0)
+            return false;
+        return true;
+    }
+
     int calculateTotalScore(String pinsDownInALine) throws Exception {
         int[] pinsDownInALineArray = inputTransfer(pinsDownInALine);
         if (!isTransferedIntArrayLegal(pinsDownInALineArray))
