@@ -79,10 +79,18 @@ public class BowlingGameTest {
     }
 
     @Test
-    void shouldThrowWhenTheNumberRangeOfTheTransferedIntArrayIncorrect(){
+    void shouldThrowWhenThePinsDownMoreThanTenInAThrow(){
         String pinsDownInALine = "10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 11, 0, 0";
         assertThrows(Exception.class, () -> {
             bowlingGame.calculateTotalScore(pinsDownInALine);
         });
     }
+
+//    @Test
+//    void shouldThrowWhenThePinsDownNumberIncorrectBeforeFrameTen(){
+//        String pinsDownInALine = "10, 1, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 0";
+//        assertThrows(Exception.class, () -> {
+//            bowlingGame.calculateTotalScore(pinsDownInALine);
+//        });
+//    }
 }

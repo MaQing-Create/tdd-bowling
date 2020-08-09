@@ -50,14 +50,14 @@ public class BowlingGame {
         }
         return true;
     }
-//
-//    private boolean isThePinsDownNumberCorrectBeforeFrameTenCheck(int[] pinsDownInALine) {
-//        for (int frame = 1; frame < totalFrameNumber; frame++) {
-//            if (pinsDownInALine[frame * 2 - 2] + pinsDownInALine[frame * 2 - 1] > maxPinsDownNumberInAFrameBeforeFrameTen)
-//                return false;
-//        }
-//        return true;
-//    }
+
+    private boolean isThePinsDownNumberCorrectBeforeFrameTenCheck(int[] pinsDownInALine) {
+        for (int frame = 1; frame < totalFrameNumber; frame++) {
+            if (pinsDownInALine[frame * 2 - 2] + pinsDownInALine[frame * 2 - 1] > maxPinsDownNumberInAFrameBeforeFrameTen)
+                return false;
+        }
+        return true;
+    }
 //
 //    private boolean isThePinsDownNumberCorrectInFrameTenCheck(int[] pinsDownInALine) {
 //        int firstThrowIndexInFrameTen = totalFrameNumber * 2 - 2;
