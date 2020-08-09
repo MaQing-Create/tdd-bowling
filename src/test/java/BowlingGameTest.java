@@ -71,7 +71,7 @@ public class BowlingGameTest {
 //    }
 
     @Test
-    void shouldThrowWhenTheLengthOfTransferedIntArrayIncorrect(){
+    void shouldThrowExceptionWhenTheLengthOfTransferedIntArrayIncorrect(){
         String pinsDownInALine = "10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0";
         assertThrows(Exception.class, () -> {
                 bowlingGame.calculateTotalScore(pinsDownInALine);
@@ -79,8 +79,16 @@ public class BowlingGameTest {
     }
 
     @Test
-    void shouldThrowWhenThePinsDownMoreThanTenInAThrow(){
+    void shouldThrowExceptionWhenThePinsDownMoreThanTenInAThrow(){
         String pinsDownInALine = "10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 11, 0, 0";
+        assertThrows(Exception.class, () -> {
+            bowlingGame.calculateTotalScore(pinsDownInALine);
+        });
+    }
+
+    @Test
+    void shouldThrowExceptionWhenThePinsDownLessThanZeroInAThrow(){
+        String pinsDownInALine = "10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, -1, 0, 0";
         assertThrows(Exception.class, () -> {
             bowlingGame.calculateTotalScore(pinsDownInALine);
         });
