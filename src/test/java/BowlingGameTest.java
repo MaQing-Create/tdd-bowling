@@ -128,4 +128,12 @@ public class BowlingGameTest {
         String pinsDownInALine = "6, 2, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0";
         assertEquals(bowlingGame.calculateTotalScore(pinsDownInALine),13);
     }
+
+    @Test
+    void shouldReturnCorrectTotalScoreWWhenSpikeInFrameTen() throws Exception {
+        String pinsDownInALine = "0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 2, 3";
+        assertEquals(bowlingGame.calculateTotalScore(pinsDownInALine),15);
+    }
+
+
 }
