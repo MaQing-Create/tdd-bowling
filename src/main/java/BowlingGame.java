@@ -32,24 +32,24 @@ public class BowlingGame {
 
     boolean isTransferedIntArrayLegal(int[] pinsDownInALine) {
         boolean lengthCheck = isTheLengthOfTransferedIntArrayCorrect(pinsDownInALine);
-//        boolean numberRangeCheck = isTheNumberRangeOfTheTransferedIntArrayCorrect(pinsDownInALine);
+        boolean numberRangeCheck = isTheNumberRangeOfTheTransferedIntArrayCorrect(pinsDownInALine);
 //        boolean pinsDownNumberBeforeFrameTenCheck = isThePinsDownNumberCorrectBeforeFrameTenCheck(pinsDownInALine);
 //        boolean pinsDownNumberInFrameTenCheck = isThePinsDownNumberCorrectInFrameTenCheck(pinsDownInALine);
 //        return lengthCheck && numberRangeCheck && pinsDownNumberBeforeFrameTenCheck && pinsDownNumberInFrameTenCheck;
-        return lengthCheck;
+        return lengthCheck && numberRangeCheck;
     }
 
     private boolean isTheLengthOfTransferedIntArrayCorrect(int[] pinsDownInALine) {
         if (pinsDownInALine.length == totalThrowNumber) return true;
         return false;
     }
-//
-//    private boolean isTheNumberRangeOfTheTransferedIntArrayCorrect(int[] pinsDownInALine) {
-//        for (int number : pinsDownInALine) {
-//            if (number > maxPinsDownNumberInAThrow || number < minPinsDownNumberInAThrow) return false;
-//        }
-//        return true;
-//    }
+
+    private boolean isTheNumberRangeOfTheTransferedIntArrayCorrect(int[] pinsDownInALine) {
+        for (int number : pinsDownInALine) {
+            if (number > maxPinsDownNumberInAThrow || number < minPinsDownNumberInAThrow) return false;
+        }
+        return true;
+    }
 //
 //    private boolean isThePinsDownNumberCorrectBeforeFrameTenCheck(int[] pinsDownInALine) {
 //        for (int frame = 1; frame < totalFrameNumber; frame++) {

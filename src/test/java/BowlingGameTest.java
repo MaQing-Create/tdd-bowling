@@ -77,4 +77,12 @@ public class BowlingGameTest {
                 bowlingGame.calculateTotalScore(pinsDownInALine);
             });
     }
+
+    @Test
+    void shouldThrowWhenTheNumberRangeOfTheTransferedIntArrayIncorrect(){
+        String pinsDownInALine = "10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 11, 0, 0";
+        assertThrows(Exception.class, () -> {
+            bowlingGame.calculateTotalScore(pinsDownInALine);
+        });
+    }
 }
