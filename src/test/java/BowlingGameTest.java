@@ -122,4 +122,10 @@ public class BowlingGameTest {
         String pinsDownInALine = "8, 2, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0";
         assertEquals(bowlingGame.calculateTotalScore(pinsDownInALine),20);
     }
+
+    @Test
+    void shouldReturnCorrectTotalScoreWWhenNoSpikeOrSpare() throws Exception {
+        String pinsDownInALine = "6, 2, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0";
+        assertEquals(bowlingGame.calculateTotalScore(pinsDownInALine),13);
+    }
 }
