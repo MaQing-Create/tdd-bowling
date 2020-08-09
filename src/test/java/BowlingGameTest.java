@@ -116,4 +116,10 @@ public class BowlingGameTest {
         String pinsDownInALine = "0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0";
         assertEquals(bowlingGame.calculateTotalScore(pinsDownInALine),0);
     }
+
+    @Test
+    void shouldReturnCorrectTotalScoreWWhenSpareHappenedBeforeFrameTen() throws Exception {
+        String pinsDownInALine = "8, 2, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0";
+        assertEquals(bowlingGame.calculateTotalScore(pinsDownInALine),20);
+    }
 }
