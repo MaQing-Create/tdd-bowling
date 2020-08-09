@@ -103,10 +103,19 @@ public class BowlingGameTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenThePinsDownNumberMoreThanTenInFrameTenInSpareThrow(){
+    void shouldThrowExceptionWhenThePinsDownNumberMoreThanTenInFrameTenSpareThrow(){
         String pinsDownInALine = "10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 5, 6, 0";
         assertThrows(Exception.class, () -> {
             bowlingGame.calculateTotalScore(pinsDownInALine);
         });
     }
+
+    @Test
+    void shouldThrowExceptionWhenTheThirdThrowHappensIfNoaSpikeOrSpareInFrameTen(){
+        String pinsDownInALine = "10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 5, 4, 1";;
+        assertThrows(Exception.class, () -> {
+            bowlingGame.calculateTotalScore(pinsDownInALine);
+        });
+    }
+
 }
